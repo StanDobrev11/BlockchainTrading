@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Portfolio Summary Section -->
+<div class="container mt-4">
+    <h2>Portfolio Summary</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Value</h5>
+                    <p class="card-text">$10,250.30</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Daily Change</h5>
+                    <p class="card-text text-success">+3.5%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Holdings</h5>
+                    <p class="card-text">BTC, ETH, LTC</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Market Trends Section -->
+<div class="container mt-4">
+    <h2>Market Trends</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Top Performers</h4>
+            <ul>
+                <li>Bitcoin (BTC) - $40,000.00 (+2.0%)</li>
+                <li>Ethereum (ETH) - $2,500.00 (+3.1%)</li>
+                <li>Litecoin (LTC) - $150.00 (+4.5%)</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h4>Latest News</h4>
+            <ul>
+                <li><a href="#">Bitcoin hits new all-time high</a></li>
+                <li><a href="#">Ethereum 2.0 launch date announced</a></li>
+                <li><a href="#">Cryptocurrency adoption rates soaring worldwide</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Recent Transactions Section -->
+<div class="container mt-4">
+    <h2>Recent Transactions</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Crypto</th>
+                <th>Amount</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024-03-01</td>
+                <td>Buy</td>
+                <td>BTC</td>
+                <td>0.1</td>
+                <td>$4,000</td>
+            </tr>
+            <tr>
+                <td>2024-02-28</td>
+                <td>Sell</td>
+                <td>ETH</td>
+                <td>2.0</td>
+                <td>$5,000</td>
+            </tr>
+            <!-- Add more transactions as needed -->
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
