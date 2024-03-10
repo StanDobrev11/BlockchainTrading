@@ -17,10 +17,10 @@ body {
     width: 100%;
 }
 
-.navbar-nav .nav-item {
-    align-items: center;
-    display: flex;
-}
+/*.navbar-nav .nav-item {*/
+/*    align-items: center;*/
+/*    display: flex;*/
+/*}*/
 
 .content {
     display: flex;
@@ -43,22 +43,22 @@ canvas {
     max-width: 100%;
 }
 
-.logout-button {
-    color: white; /* Adjust as per your navbar link color */
-    text-decoration: none;
-    padding: 0;
-    background: none;
-    border: none;
-    display: inline;
-    margin: 0;
-    vertical-align: middle; /* Adjusted to middle for better alignment */
-}
+/*.logout-button {*/
+/*    color: white; !* Adjust as per your navbar link color *!*/
+/*    text-decoration: none;*/
+/*    padding: 0;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    display: inline;*/
+/*    margin: 0;*/
+/*    vertical-align: middle; !* Adjusted to middle for better alignment *!*/
+/*}*/
 
 
-/* Make the form fit with the nav item */
-.nav-item form {
-    display: inline-block;
-    margin: 0;
-    vertical-align: middle; /* Ensures the form aligns with inline elements */
-}
+/*!* Make the form fit with the nav item *!*/
+/*.nav-item form {*/
+/*    display: inline-block;*/
+/*    margin: 0;*/
+/*    vertical-align: middle; !* Ensures the form aligns with inline elements *!*/
+/*}*/
 

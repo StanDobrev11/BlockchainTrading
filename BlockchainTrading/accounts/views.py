@@ -36,6 +36,5 @@ class RegisterUserView(CreateView):
 
 
 class LogoutUserView(auth_views.LogoutView):
-
-    def get_next_page(self):
-        return reverse_lazy('index')
+    def get_success_url(self):
+        return reverse('index')
