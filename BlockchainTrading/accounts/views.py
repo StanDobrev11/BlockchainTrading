@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import views as auth_views, get_user_model
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views import generic as views
+from django.contrib.auth import mixins as auth_mixins
 
 from BlockchainTrading.accounts.forms import UserCreateForm
 
@@ -28,7 +29,7 @@ class LoginUserView(auth_views.LoginView):
     # LOGIN_REDIRECT_URL = reverse_lazy('dashboard)
 
 
-class RegisterUserView(CreateView):
+class RegisterUserView(views.CreateView):
     # form_class = auth_forms.UserCreationForm  # default form in Django for user creation
     form_class = UserCreateForm  # default form in Django for user creation
     template_name = 'account/register_user.html'
@@ -43,3 +44,22 @@ class RegisterUserView(CreateView):
 class LogoutUserView(auth_views.LogoutView):
     def get_success_url(self):
         return reverse('index')
+
+
+class ProfileUserView(views.TemplateView, auth_mixins.LoginRequiredMixin):
+    template_name = 'account/profile.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data()
+    #     user = self.request.user
+    #     context['user'] = user
+    #
+    #     return context
+
+
+class PasswordChangeView(auth_views.PasswordChangeView, auth_mixins.LoginRequiredMixin):
+    template_name = 'account/password_change.html'
+
+
+class PasswordChangeDoneView(auth_views.PasswordChangeDoneView, auth_mixins.LoginRequiredMixin):
+    template_name = 'account/password_change_done.html'

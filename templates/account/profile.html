@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="profile-header mb-3">
+                <h2>User Profile</h2>
+                <!-- Placeholder for User Avatar -->
+                <img src="{% static 'path/to/default-avatar.png' %}" alt="User Avatar" class="img-thumbnail avatar">
+                <!-- This can be dynamically changed to the user's actual avatar -->
+            </div>
+            
+            <div class="user-details mb-3">
+                <p><strong>Nickname:</strong> {{ user.username }}</p>
+                <p><strong>First Name:</strong> {{ user.first_name }}</p>
+                <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <!-- Include other details as necessary -->
+            </div>
+            
+            <div class="update-profile mb-3">
+                <h4>Update Profile</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+            
+            <div class="password-change">
+                <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -37,8 +37,8 @@
             </ul>
             <!-- Separate ul for the About link -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                <li class="nav-item {% nav_active 'profile' %}">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                 </li>
 
                 <li class="nav-item">
@@ -46,7 +46,8 @@
                         {% csrf_token %}
                     </form>
 
-                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <a class="nav-link" href="#"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
 
                 <li class="nav-item">
