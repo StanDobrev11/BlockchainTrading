@@ -1,4 +1,4 @@
-from django.contrib.auth import forms as auth_forms
+from django.contrib.auth import forms as auth_forms, login
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import views as auth_views, get_user_model
@@ -32,7 +32,12 @@ class RegisterUserView(CreateView):
     # form_class = auth_forms.UserCreationForm  # default form in Django for user creation
     form_class = UserCreateForm  # default form in Django for user creation
     template_name = 'account/register_user.html'
-    success_url = reverse_lazy('dashboard')  # must login at same time
+    success_url = reverse_lazy('dashboard')
+
+    def form_valid(self, form):
+        valid = super().form_valid(form)
+        login(self.request, self.object)
+        return valid
 
 
 class LogoutUserView(auth_views.LogoutView):
