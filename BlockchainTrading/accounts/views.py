@@ -1,5 +1,5 @@
 from django.contrib.auth import forms as auth_forms, login
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import views as auth_views, get_user_model
 from django.urls import reverse, reverse_lazy
@@ -22,6 +22,11 @@ UserModel = get_user_model()
 class LoginUserView(auth_views.LoginView):
     template_name = 'account/login_user.html'
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('dashboard'))
+        return super().get(request, args, kwargs)
+
     # def get_success_url(self):
     #     return reverse_lazy('dashboard')
 
@@ -42,6 +47,7 @@ class RegisterUserView(views.CreateView):
 
 
 class LogoutUserView(auth_views.LogoutView):
+
     def get_success_url(self):
         return reverse('index')
 
