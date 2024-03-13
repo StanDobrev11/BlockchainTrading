@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="db" uuid="a1323758-cebd-43e6-8216-c96c7ffa7be9">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>aebade21-dffd-4025-8851-7491d11e0fe5</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\dobre\PycharmProjects\BlockchainTrading\db.sqlite3</jdbc-url>

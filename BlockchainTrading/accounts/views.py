@@ -35,8 +35,8 @@ class LoginUserView(auth_views.LoginView):
 
 
 class RegisterUserView(views.CreateView):
-    # form_class = auth_forms.UserCreationForm  # default form in Django for user creation
-    form_class = UserCreateForm  # default form in Django for user creation
+    form_class = auth_forms.UserCreationForm  # default form in Django for user creation
+    # form_class = UserCreateForm
     template_name = 'account/register_user.html'
     success_url = reverse_lazy('dashboard')
 
