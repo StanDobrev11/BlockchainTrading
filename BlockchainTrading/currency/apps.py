@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountsConfig(AppConfig):
+class SymbolsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'BlockchainTrading.accounts'
+    name = 'BlockchainTrading.currency'

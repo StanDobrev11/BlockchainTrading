@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-import BlockchainTrading
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('BlockchainTrading.common.urls')),
+    path('currency/', include('BlockchainTrading.currency.urls')),
     path('accounts/', include('BlockchainTrading.accounts.urls')),
+    path('ohlcv/', include('BlockchainTrading.historical_data.urls')),
+
 ]

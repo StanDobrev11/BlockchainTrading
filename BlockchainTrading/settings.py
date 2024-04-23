@@ -9,10 +9,14 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
+import environ
 from pathlib import Path
 
 from django.urls import reverse_lazy
+
+env = environ.Env()
+env.read_env(env_file='.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +32,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': '5432',
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'BlockchainTrading.accounts',
-    'BlockchainTrading.common',
+    'BlockchainTrading.common.apps.CommonConfig',
+    'BlockchainTrading.currency.apps.SymbolsConfig',
+    'BlockchainTrading.accounts.apps.AccountsConfig',
+    'BlockchainTrading.historical_data.apps.HistoricalDataConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -72,16 +90,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'BlockchainTrading.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -125,7 +133,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = reverse_lazy('login')
-LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+# LOGIN_URL = reverse_lazy('login')
+# LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+# AUTH_USER_MODEL = 'accounts.CustomUser'

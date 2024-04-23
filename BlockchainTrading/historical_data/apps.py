@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountsConfig(AppConfig):
+class HistoricalDataConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'BlockchainTrading.accounts'
+    name = 'BlockchainTrading.historical_data'
